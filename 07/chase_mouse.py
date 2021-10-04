@@ -67,7 +67,7 @@ while running:
     elif x < chx and y == chy:
         chx -= 1
         dir = -1
-    if y > chy and x == chx:
+    elif y > chy and x == chx:
         chy += 1
     elif y < chy and x == chx:
         chy -= 1
