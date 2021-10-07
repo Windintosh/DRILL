@@ -81,11 +81,11 @@ def draw_line(p1, p2):
     pass
 
 
-def lissajous_curve():
-    f = 300
-    g = 200
-    j = 3
-    k = 2
+def lissajous_curve(a, b, kx, ky):
+    f = a
+    g = b
+    j = kx
+    k = ky
     for t in range(0, 360, 1):
         x = f * math.cos(j * t)
         y = g * math.sin(k * t)
@@ -97,5 +97,5 @@ prepare_turtle_canvas()
 
 # draw_line((-100, 50),(300, 50))
 # draw_line_basic((0, 0), (100, 100))
-lissajous_curve()
+lissajous_curve(300, 200, 3, 2)
 turtle.done()
