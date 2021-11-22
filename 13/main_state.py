@@ -77,19 +77,16 @@ def handle_events():
 def update():
     for game_object in game_world.all_objects():
         game_object.update()
-
+    # balls :현재 공간에서 떨어지고 있어서, 충돌체크가 필요한 공들
     for ball in balls.copy():
         if collide(ball, grass):
             ball.stop()
-        if collide(ball, boy):
-            balls.remove(ball)
+        if collide(ball, boy): : #1차적으로 볼과 소년의 충돌
+            balls.remove(ball) # 충돌이 없어지면, 충돌체크가 더이상 필요하지 않다
             game_world.remove_object(ball)
-        if collide(ball, brick):
+        if collide(ball, brick): #발판과 충돌이 발생하면, 발판에 볼을 담는다
             ball.stop()
-            if brick.speed > 0:
-                ball.x += game_framework.frame_time * brick.speed
-            else:
-                ball.x += game_framework.frame_time * brick.speed
+            ball.x += game_framework.frame_time * brick.speed
 
 def draw():
     clear_canvas()
